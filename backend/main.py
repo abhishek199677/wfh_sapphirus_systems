@@ -1,5 +1,4 @@
 import os
-import logging
 
 from fastapi import FastAPI, HTTPException, Response
 from pydantic import BaseModel
