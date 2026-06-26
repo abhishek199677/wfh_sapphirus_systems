@@ -37,7 +37,7 @@ if prompt := st.chat_input("Ask a question or request a task..."):
         except Exception:
             # Fallback for local testing without docker
             try:
-                local_url = "http://localhost:8000/api/ask"
+                local_url = "http://localhost:8765/api/ask"
                 response = requests.post(local_url, json={"query": prompt})
                 if response.status_code == 200:
                     data = response.json()
