@@ -1,0 +1,31 @@
+# Python
+__pycache__
+*.pyc
+*.pyo
+*.egg-info
+dist
+build
+
+# Environment (contains real API keys)
+.env
+
+# Runtime data
+chroma_db/
+logs/
+
+# Testing
+.pytest_cache
+.cache
+htmlcov
+.coverage
+
+# IDE / OS
+.DS_Store
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# Docker
+.dockerignore
