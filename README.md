@@ -108,6 +108,7 @@ pytest tests/ -v
 ├── frontend/
 │   └── app.py            # Streamlit chat UI
 ├── tests/
+│   ├── conftest.py       # Test configuration
 │   ├── test_api.py       # API endpoint tests
 │   └── test_agent.py     # Agent test
 ├── .github/workflows/

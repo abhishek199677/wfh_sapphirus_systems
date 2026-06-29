@@ -1,19 +1,55 @@
 import os
+from contextlib import asynccontextmanager
 
-from fastapi import FastAPI, HTTPException, Response
-from pydantic import BaseModel
 from dotenv import load_dotenv
+from fastapi import FastAPI, HTTPException, Response
+from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
 
-from .rag import add_document
 from .agent import query_agent
 from .logging_config import setup_logging
+from .providers import get_llm
+from .rag import add_document, get_vectorstore
 
 load_dotenv(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".env"))
 
 logger = setup_logging()
 logger.info("Starting AI Copilot API")
 
-app = FastAPI(title="AI Copilot API", description="API for Enterprise AI Copilot")
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    logger.info("Application startup — verifying LLM and vectorstore configuration")
+    try:
+        get_llm()
+        logger.info("LLM provider initialized successfully")
+    except Exception as e:
+        logger.warning("LLM provider not available at startup: %s", e)
+    try:
+        get_vectorstore()
+        logger.info("Vector store initialized successfully")
+    except Exception as e:
+        logger.warning("Vector store not available at startup: %s", e)
+    yield
+    logger.info("Application shutdown")
+
+
+app = FastAPI(
+    title="AI Copilot API",
+    description="API for Enterprise AI Copilot",
+    lifespan=lifespan,
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:8501",
+        "http://127.0.0.1:8501",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 class QueryRequest(BaseModel):
@@ -37,9 +73,6 @@ def read_root():
 
 @app.get("/health")
 def health_check(response: Response):
-    from .providers import get_llm
-    from .rag import get_vectorstore
-
     result = {"status": "healthy", "checks": {}}
 
     try:

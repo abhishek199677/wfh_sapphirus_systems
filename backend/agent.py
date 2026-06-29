@@ -1,5 +1,5 @@
-import os
 import logging
+import os
 
 from langchain_classic.agents import AgentExecutor, create_openai_tools_agent
 from langchain_core.prompts import ChatPromptTemplate
@@ -75,7 +75,11 @@ def query_agent(query: str):
     tools = [search_knowledge_base, create_jira_ticket]
 
     prompt = ChatPromptTemplate.from_messages([
-        ("system", "You are an Enterprise AI Copilot. You can search the internal knowledge base or automate tasks like creating Jira tickets. Answer questions based on the tools available."),
+        ("system", (
+            "You are an Enterprise AI Copilot. "
+            "You can search the internal knowledge base or automate tasks like creating Jira tickets. "
+            "Answer questions based on the tools available."
+        )),
         ("human", "{input}"),
         ("placeholder", "{agent_scratchpad}"),
     ])
