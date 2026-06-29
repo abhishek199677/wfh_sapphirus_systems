@@ -1,0 +1,32 @@
+Sapphirus Systems Employee Handbook
+
+1. Leave Policy
+- Annual leave: 20 working days per year, accruable up to 30 days.
+- Sick leave: 14 days per year with a medical certificate required for absences over 3 consecutive days.
+- Parental leave: 16 weeks fully paid maternity leave, 4 weeks paternity leave.
+- Public holidays: As per the national calendar, plus 2 floating holidays.
+
+2. Work Hours
+- Standard work hours: 9:00 AM to 6:00 PM, Monday through Friday.
+- Remote work: Up to 3 days per week with manager approval.
+- Flexitime: Core hours are 10:00 AM to 4:00 PM; remaining hours flexible.
+
+3. Code of Conduct
+- All employees must sign the confidentiality agreement upon joining.
+- Personal use of company resources must not exceed 5% of work time.
+- Harassment of any kind is strictly prohibited and will result in disciplinary action.
+
+4. IT & Security
+- Passwords must be rotated every 90 days.
+- Company laptops must use full-disk encryption.
+- VPN is mandatory when accessing company resources from outside the office.
+
+5. Travel Policy
+- Economy class for flights under 6 hours, business class for flights over 6 hours.
+- Daily meal allowance: $50 for domestic travel, $75 for international.
+- Hotel: 4-star or equivalent, not to exceed $250/night domestic, $350/night international.
+
+6. Performance Reviews
+- Quarterly reviews with direct manager.
+- Annual bonus calculated as 10-20% of base salary based on performance rating.
+- Promotion eligibility reviewed annually in December.
