@@ -25,6 +25,7 @@ project-root/
 │   ├── main.py
 │   ├── providers.py
 │   └── rag.py
+├── company_policy.txt
 ├── frontend/
 │   └── app.py
 └── tests/
